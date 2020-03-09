@@ -15,6 +15,7 @@
         android:layout_marginTop="32dp"
         android:background="@color/colorPrimary"
         android:text="ADD WEIGHT"
+        android:onClick="addWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
