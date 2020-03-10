@@ -9,7 +9,9 @@ import android.provider.MediaStore;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -26,7 +28,9 @@ public class addWeight extends AppCompatActivity {
     RadioButton radio_current, radio_select;
     Long time_stamp_ms;
     TextView tv_time;
+    EditText tv_weight;
     String dateText = "tmp";
+    Button save_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,9 @@ public class addWeight extends AppCompatActivity {
         radio_current = findViewById(R.id.radio_current);
         radio_select = findViewById(R.id.radio_select);
         tv_time = findViewById(R.id.tv_time);
+        save_button = findViewById(R.id.saveButton);
+        tv_weight = findViewById(R.id.editWeight);
+
         radio_current.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +56,16 @@ public class addWeight extends AppCompatActivity {
 
             }
         });
+
+        save_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveData();
+            }
+        });
     }
+
+
 
     private void useCurrent() {
         time_stamp_ms = System.currentTimeMillis();
@@ -80,6 +96,19 @@ public class addWeight extends AppCompatActivity {
 
     private void updateText() {
         tv_time.setText(dateText);
+    }
+
+    private void saveData() {
+        String date_tmp = tv_time.getText().toString();
+
+        String weight_tmp = null;
+        try {
+            weight_tmp = tv_weight.getText().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(this, date_tmp+" "+weight_tmp, Toast.LENGTH_SHORT).show();
     }
 
 }
