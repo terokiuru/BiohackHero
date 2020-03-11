@@ -32,6 +32,8 @@ public class addWeight extends AppCompatActivity {
     String dateText = "tmp";
     Button save_button;
 
+    myWeightDatabase myData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,8 @@ public class addWeight extends AppCompatActivity {
             }
         });
 
+        myData = new myWeightDatabase(this);
+
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,8 +68,6 @@ public class addWeight extends AppCompatActivity {
             }
         });
     }
-
-
 
     private void useCurrent() {
         time_stamp_ms = System.currentTimeMillis();
@@ -108,7 +110,8 @@ public class addWeight extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Toast.makeText(this, date_tmp+" "+weight_tmp, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, date_tmp+" "+weight_tmp, Toast.LENGTH_SHORT).show();
+        myData.insertData(date_tmp, weight_tmp);
     }
 
 }

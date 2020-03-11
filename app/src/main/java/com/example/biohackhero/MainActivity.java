@@ -42,4 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void doAnalyze(View view) {
+        Intent i1 = new Intent(this, AnalyzeWeight.class);
+        startActivity(i1);
+    }
 }
