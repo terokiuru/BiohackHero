@@ -50,8 +50,10 @@ public class AnalyzeWeight extends AppCompatActivity {
     }
 
     private void erase_data() {
+        String get_id = "1";
 
-        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+        myData.deleteItem();
+//        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
     }
 
 }

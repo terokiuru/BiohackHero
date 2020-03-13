@@ -48,12 +48,37 @@ public class myWeightDatabase extends SQLiteOpenHelper {
         StringBuilder str = new StringBuilder();
 
         while (cr.moveToNext()) {
+            String s0 = cr.getString(0);
             String s1 = cr.getString(1);
             String s2 = cr.getString(2);
-            str.append(s1+"   "+s2+" \n");
+            str.append(s0+"    "+s1+"   "+s2+" \n");
         }
 
         Toast.makeText(ctx, str.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    public void deleteItem()
+    {
+        myDb = getReadableDatabase();
+        Cursor cr = myDb.rawQuery("Select * from "+DB_TABLE, null);
+        StringBuilder str = new StringBuilder();
+        int i = 0;
+        int int_max = 0;
+        while (cr.moveToNext()) {
+            i = i + 1;
+            String s = cr.getString(0);
+            int s_int = Integer.parseInt(s);
+            if (s_int > int_max) {
+                int_max = s_int;
+            }
+//            str.append(s0+"    "+s1+"   "+s2+" \n");
+        }
+        str.append(int_max);
+        String get_ID = Integer.toString(int_max);
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(DB_TABLE, "_id = ?", new String[] {get_ID});
+
+//        Toast.makeText(ctx, str.toString(), Toast.LENGTH_SHORT).show();
     }
 
 
