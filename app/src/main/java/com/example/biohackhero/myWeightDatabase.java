@@ -34,6 +34,7 @@ public class myWeightDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
     public void insertData(String s1, String s2) {
         myDb = getWritableDatabase();
 
@@ -54,5 +55,7 @@ public class myWeightDatabase extends SQLiteOpenHelper {
 
         Toast.makeText(ctx, str.toString(), Toast.LENGTH_LONG).show();
     }
+
+
 }
 
