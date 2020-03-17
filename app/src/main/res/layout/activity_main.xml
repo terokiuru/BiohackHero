@@ -36,6 +36,7 @@
             android:layout_marginBottom="16dp"
             android:background="@color/colorPrimary"
             android:text="VISUALIZE"
+            android:onClick="doVisualize"
             android:textSize="18sp" />
 
         <Button

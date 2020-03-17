@@ -41,9 +41,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i1);
     }
 
-
     public void doAnalyze(View view) {
         Intent i1 = new Intent(this, AnalyzeWeight.class);
+        startActivity(i1);
+    }
+
+    public void doVisualize(View view) {
+        Intent i1 = new Intent(this, VisualizeWeight.class);
         startActivity(i1);
     }
 }

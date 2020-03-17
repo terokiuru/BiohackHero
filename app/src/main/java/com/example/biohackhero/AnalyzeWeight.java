@@ -14,8 +14,8 @@ public class AnalyzeWeight extends AppCompatActivity {
     Button erase_button;
     myWeightDatabase myData;
 
-    Context ctx;
 
+//    Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +32,13 @@ public class AnalyzeWeight extends AppCompatActivity {
                 load_data();
             }
         });
-
         erase_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 erase_data();
             }
         });
-
-
-
     }
-
 
     private void load_data() {
         myData.getAll();
@@ -51,9 +46,7 @@ public class AnalyzeWeight extends AppCompatActivity {
 
     private void erase_data() {
         String get_id = "1";
-
         myData.deleteItem();
-//        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
     }
 
 }
